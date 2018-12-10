@@ -1,5 +1,7 @@
 # ChartDemo
 
+This demo is built following "https://medium.com/codingthesmartway-com-blog/angular-chart-js-with-ng2-charts-e21c8262777f"; 
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.1.0.
 
 ## Development server
