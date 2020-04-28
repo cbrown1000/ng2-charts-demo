@@ -2,6 +2,8 @@
 #Test change#1
 #Test change#2-B2
 
+
+#Test change#6-B2/2nd dir
 This demo is built following "https://medium.com/codingthesmartway-com-blog/angular-chart-js-with-ng2-charts-e21c8262777f"; 
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.1.0.
