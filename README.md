@@ -1,6 +1,7 @@
 # ChartDemo
 #Test change#1
 #Test change#2-B2
+#Test Change#5-B2/1st dir
 
 This demo is built following "https://medium.com/codingthesmartway-com-blog/angular-chart-js-with-ng2-charts-e21c8262777f"; 
 
