@@ -10,6 +10,10 @@ import { MyRadarChartComponent } from './my-radar-chart/my-radar-chart.component
 import { MyPieChartComponent } from './my-pie-chart/my-pie-chart.component';
 import { MyBindingChartComponent } from './my-binding-chart/my-binding-chart.component';
 import { MyStackedBarComponent } from './my-stacked-bar/my-stacked-bar.component';
+import { DataService } from './service/data.service';
+import { MyTableComponent } from './my-table/my-table.component';
+import { MyDynamicChartComponent } from './my-dynamic-chart/my-dynamic-chart.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -19,14 +23,17 @@ import { MyStackedBarComponent } from './my-stacked-bar/my-stacked-bar.component
     MyRadarChartComponent,
     MyPieChartComponent,
     MyBindingChartComponent,
-    MyStackedBarComponent
+    MyStackedBarComponent,
+    MyDynamicChartComponent,
+    MyTableComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ChartsModule
+    ChartsModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

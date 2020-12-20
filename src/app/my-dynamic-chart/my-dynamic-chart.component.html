@@ -1,0 +1,42 @@
+
+<div>
+  <div style="display:block; width: 880px; height:500px;">
+    <canvas baseChart
+            [datasets]="chartData"
+            [labels]="chartLabels"
+            [options]="chartOptions"
+            [legend]="chartLegend"
+            [chartType]="chartType"
+            >
+    </canvas>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-2">
+    <label>Chart Type</label>
+    <select class="" [(ngModel)]="chartType">
+      <option *ngFor="let option of chartTypes" value="{{option}}">{{option}}</option>
+    </select>
+  </div>
+  <div class="col-sm-2">
+    <button (click)="changeLegend()">Legend</button>
+  </div>
+  <div class="col-sm-2">
+    <button (click)="addDataSet()">Add Data Set</button>
+  </div>
+</div>
+<br>
+<div class="row">
+<table class="table table-responsive table-condensed">
+  <tr>
+    <th>Label</th>
+    <th *ngFor="let label of chartLabels">{{label}}</th>
+  </tr>
+  <tr *ngFor="let dataSet of chartData">
+    <td>{{dataSet.label}}</td>
+    <td *ngFor="let point of dataSet.data">{{point}}</td>
+  </tr>
+
+</table>
+
+</div>

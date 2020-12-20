@@ -6,6 +6,7 @@ import { MyRadarChartComponent } from './my-radar-chart/my-radar-chart.component
 import { MyPieChartComponent } from './my-pie-chart/my-pie-chart.component';
 import {MyBindingChartComponent } from './my-binding-chart/my-binding-chart.component';
 import { MyStackedBarComponent } from './my-stacked-bar/my-stacked-bar.component';
+import { MyDynamicChartComponent } from './my-dynamic-chart/my-dynamic-chart.component';
 
 const routes: Routes = [
   { path: 'bar-chart', component: MyBarChartComponent },
@@ -14,6 +15,7 @@ const routes: Routes = [
   { path: 'pie-chart', component: MyPieChartComponent },
   { path: 'bind-chart', component: MyBindingChartComponent},
   { path: 'stackedBar-chart',component: MyStackedBarComponent},
+  { path: 'dynamic-chart', component: MyDynamicChartComponent},
   { path: '**', component:MyBarChartComponent }
 ];
 
