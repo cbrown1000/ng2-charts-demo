@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { BaseChartDirective } from 'ng2-charts/ng2-charts';
 import * as pluginDataLabels from 'chartjs-plugin-datalabels';
 
 @Component({
@@ -7,6 +8,7 @@ import * as pluginDataLabels from 'chartjs-plugin-datalabels';
   styleUrls: ['./my-dynamic-chart.component.css']
 })
 export class MyDynamicChartComponent implements OnInit {
+  @ViewChild(BaseChartDirective) chart: BaseChartDirective;
 
   constructor() { }
 
@@ -16,7 +18,8 @@ export class MyDynamicChartComponent implements OnInit {
     plugins: {
       datalabels: {
         anchor: 'center', //start, center, end
-        align: 'right', //
+        align: 'right', //https://chartjs-plugin-datalabels.netlify.app/guide/
+        rotation: 90,
         font: {
           size: 10,
         },
@@ -31,13 +34,13 @@ export class MyDynamicChartComponent implements OnInit {
 
   public chartType = "bar";
 
-  public chartTypes = ['bar', 'bubble', 'doughnut', 'pie', 'radar', 'horizontalBar'];
+  public chartTypes = ['bar', /*'bubble',*/ 'doughnut', 'pie', 'radar', 'horizontalBar'];
 
   public chartLegend = true;
 
   public chartData = [
     { data: [65, 59, 80, 81, 56, 55, 40], label: 'Series A' },
-  //  { data: [28, 48, 40, 19, 86, 27, 90], label: 'Series B' },
+    { data: [28, 48, 40, 19, 86, 27, 90], label: 'Series B' },
     { data: [28, 82, 30, 9, 86, 55, 44], label: 'Series C' }
   ];
 
@@ -48,7 +51,7 @@ export class MyDynamicChartComponent implements OnInit {
   }
 
   addDataSet(){
-    console.log('addDataSet()');
+    // console.log('addDataSet()');
     let dataSetNum = this.chartData.length +1;
     let prevData = this.chartData[this.chartData.length-1];
     let dataSize = prevData.data.length;
@@ -61,12 +64,16 @@ export class MyDynamicChartComponent implements OnInit {
     for(let i = 0;i<dataSize;i++){
       newDataSet.data.push(Math.floor(Math.random() * maxSize) +1)
     }
-    let _chartData = this.chartData;
 
-    _chartData.unshift(newDataSet);
-    this.chartData = _chartData;
+    this.chartData.unshift(newDataSet);
+    //this.chart.chart.update();
+    this.changeLegend();
 
+    setTimeout( ()=>{//The changeLegend cause a complete redraw
+      this.changeLegend();
+    },100);
   }
+
   ngOnInit() {
   }
 
