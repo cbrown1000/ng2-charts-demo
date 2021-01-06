@@ -28,7 +28,15 @@ export class MyDynamicChartComponent implements OnInit {
           return context.dataset.label + '--'+ context.chart.data.labels[context.dataIndex] +': '+ value;
         }
       }
-    }
+    },
+    tooltips: {//Need to hover over to get tooltip.  Need a static label
+      callbacks: {
+          label: function(item, data) {
+              return data.datasets[item.datasetIndex].label
+                          + ": " + data.datasets[item.datasetIndex].data[item.index];
+          }
+      }
+}
   };
 
   public chartLabels = ['2006', '2007', '2008', '2009', '2010', '2011', '2012'];
@@ -40,9 +48,9 @@ export class MyDynamicChartComponent implements OnInit {
   public chartLegend = true;
 
   public chartData = [
-    { data: [65, 59, 80, 81, 56, 55, 40], label: 'Series A' },
-    { data: [28, 48, 40, 19, 86, 27, 90], label: 'Series B' },
-    { data: [28, 82, 30, 9, 86, 55, 44], label: 'Series C' }
+    { data: [65, 59, 80, 81, 56, 55, 40], label: 'Men' },
+    { data: [28, 48, 40, 19, 86, 27, 90], label: 'Women' },
+    { data: [28, 82, 30, 9, 86, 55, 44], label: 'Kids' }
   ];
 
 
@@ -52,12 +60,12 @@ export class MyDynamicChartComponent implements OnInit {
 
   addDataSet(){
     // console.log('addDataSet()');
-    let dataSetNum = this.chartData.length +1;
-    let prevData = this.chartData[this.chartData.length-1];
-    let dataSize = prevData.data.length;
-    let maxSize = 100;
+    const dataSetNum = this.chartData.length +1;
+    const prevData = this.chartData[this.chartData.length-1];
+    const dataSize = prevData.data.length;
+    const maxSize = 100;
 
-    let newDataSet = {
+    const newDataSet = {
       data:[],
       label: 'Series '+ dataSetNum
     };
@@ -65,7 +73,7 @@ export class MyDynamicChartComponent implements OnInit {
       newDataSet.data.push(Math.floor(Math.random() * maxSize) +1)
     }
 
-    this.chartData.unshift(newDataSet);
+    this.chartData.push(newDataSet);
     //this.chart.chart.update();
     this.changeLegend();
 
