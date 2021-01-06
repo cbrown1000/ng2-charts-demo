@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from '../service/data.service';
+
 
 @Component({
   selector: 'app-my-pie-chart',
@@ -7,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MyPieChartComponent implements OnInit {
 
-  constructor() { }
+  constructor(data: DataService) { }
 
   pieChartLabels = ['Sales Q1', 'Sales Q2', 'Sales Q3', 'Sales Q4'];
   pieChartData = [120, 150, 180, 90];

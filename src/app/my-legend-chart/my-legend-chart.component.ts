@@ -1,18 +1,17 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { BaseChartDirective } from 'ng2-charts/ng2-charts';
-// import * as pluginDataLabels from 'chartjs-plugin-datalabels';
+//import * as pluginDataLabels from 'chartjs-plugin-datalabels';
 
 @Component({
-  selector: 'app-my-dynamic-chart',
-  templateUrl: './my-dynamic-chart.component.html',
-  styleUrls: ['./my-dynamic-chart.component.css']
+  selector: 'app-my-legend-chart',
+  templateUrl: './my-legend-chart.component.html',
+  styleUrls: ['./my-legend-chart.component.css']
 })
-export class MyDynamicChartComponent implements OnInit {
+export class MyLegendChartComponent implements OnInit {
   @ViewChild(BaseChartDirective) chart: BaseChartDirective;
 
   constructor() { }
 
-  // public chartPlugins = [pluginDataLabels];
   public chartOptions = {
     scaleShowVerticalLines: false,
     responsive: true,
@@ -45,6 +44,7 @@ export class MyDynamicChartComponent implements OnInit {
     { data: [28, 82, 30, 9, 86, 55, 44], label: 'Series C' }
   ];
 
+  //public chartPlugins = [pluginDataLabels];
 
   changeLegend(){
     this.chartLegend = !this.chartLegend;

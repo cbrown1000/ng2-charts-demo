@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { ChartsModule } from 'ng2-charts';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -13,7 +14,7 @@ import { MyStackedBarComponent } from './my-stacked-bar/my-stacked-bar.component
 import { DataService } from './service/data.service';
 import { MyTableComponent } from './my-table/my-table.component';
 import { MyDynamicChartComponent } from './my-dynamic-chart/my-dynamic-chart.component';
-import { FormsModule } from '@angular/forms';
+import { MyLegendChartComponent } from './my-legend-chart/my-legend-chart.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { FormsModule } from '@angular/forms';
     MyBindingChartComponent,
     MyStackedBarComponent,
     MyDynamicChartComponent,
+    MyLegendChartComponent,
     MyTableComponent
   ],
   imports: [

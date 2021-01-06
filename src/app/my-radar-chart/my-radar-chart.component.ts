@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from '../service/data.service';
 
 @Component({
   selector: 'app-my-radar-chart',
@@ -7,7 +8,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MyRadarChartComponent implements OnInit {
 
-  constructor() { }
+  constructor(private data: DataService) { }
+  message: string;
 
   public radarChartLabels = ['Q1', 'Q2', 'Q3', 'Q4'];
   public radarChartData = [
@@ -17,6 +19,7 @@ export class MyRadarChartComponent implements OnInit {
   public radarChartType = 'radar';
 
   ngOnInit() {
+    this.data.currentMessage.subscribe(message => this.message = message);
   }
 
 }
